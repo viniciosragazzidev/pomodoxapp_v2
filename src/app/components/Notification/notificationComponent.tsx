@@ -16,21 +16,19 @@ export const NotificationBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .5s ease-in-out;
-  &.show{
-   transform: translateX(-440px);
+  transition: all 0.5s ease-in-out;
+  &.show {
+    transform: translateX(-440px);
   }
-
-  
 `;
 
-
 export const NotificationComponent = () => {
-  const {customNotification, openNotification} = useContext(AppContext)
+  const { customNotification, openNotification } = useContext(AppContext);
 
-  
   return (
-    <NotificationBox className={`flex flex-col gap-2 ${openNotification ? 'show': null}`}>
+    <NotificationBox
+      className={`flex flex-col justify-center items-center text-center gap-2 ${openNotification ? "show" : null}`}
+    >
       {customNotification[0].type === "error" ? (
         <span>
           <Warning size={24} weight="fill" />
@@ -45,7 +43,9 @@ export const NotificationComponent = () => {
         </span>
       ) : null}
 
-      <span className="text-sm font-bold">{customNotification[0].message}</span>
+      <span className="text-sm font-bold text-center">
+        {customNotification[0].message}
+      </span>
     </NotificationBox>
   );
 };

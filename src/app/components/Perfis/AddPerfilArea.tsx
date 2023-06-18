@@ -34,7 +34,7 @@ export const AddPerfilArea = () => {
           <label htmlFor="name">Nome</label>
           <input
             type="text"
-            className="form-control h-9 rounded-md bg-transparent border-gray-300 border p-2 placeholder:text-sm"
+            className="form-control  max-[360px]:w-[240px] h-9 rounded-md bg-transparent border-gray-300 border p-2 placeholder:text-sm"
             id="name"
             placeholder="Seu nome"
             value={name}
@@ -46,7 +46,7 @@ export const AddPerfilArea = () => {
           <select
             name="type"
             id="type"
-            className="form-control w-24 h-9 rounded-md bg-transparent border-gray-300 border p-2 select-none placeholder:text-sm"
+            className="form-control w-24 max-[360px]:w-[240px]  h-9 rounded-md bg-transparent border-gray-300 border p-2 select-none placeholder:text-sm"
             value={idade}
             onChange={(e) => setIdade(e.target.value)}
           >
