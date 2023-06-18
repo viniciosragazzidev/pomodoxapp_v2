@@ -22,6 +22,7 @@ export type AppContextType = {
   openAddNewProfile: boolean;
   setOpenAddNewProfile: Dispatch<SetStateAction<boolean>>;
 
+  deleteProfile: (id: number) => void;
   createProfile: (name: string, idade: string) => void;
   profiles: ProfileType[];
   setProfiles: Dispatch<SetStateAction<ProfileType[]>>;
@@ -39,6 +40,8 @@ export const AppContext = createContext<AppContextType>({
   setOpenAddNewProfile: () => {},
 
   createProfile: () => {},
+  deleteProfile: () => {},
+
   profiles: [],
   setProfiles: () => {},
 
@@ -94,6 +97,22 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
     setProfiles(profilesInLocalstorage);
     setOpenAddNewProfile(false);
   };
+
+  const deleteProfile = async (id: number) => {
+    let confirm = window.confirm('Deseja excluir realmente?'); //
+    if(confirm){
+      let profilesInLocalstorage = getProfilesInLocalstorage();
+      let deleteProfileById = profilesInLocalstorage.splice(
+        profilesInLocalstorage.findIndex(
+          (profile: ProfileType) => profile.id === id
+        ),
+        1
+      );
+      localStorage.setItem("profiles", JSON.stringify(profilesInLocalstorage));
+    }else{
+      return;
+    }
+  };
   return (
     <AppContext.Provider
       value={{
@@ -107,6 +126,7 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
         setCustomNotification,
         openNotification,
         setOpenNotification,
+        deleteProfile,
       }}
     >
       {children}
