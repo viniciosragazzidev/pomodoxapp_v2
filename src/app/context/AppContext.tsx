@@ -14,27 +14,59 @@ export type ProfileType = {
   name: string;
   idade: string;
 };
-
+export type NotificationType = {
+  type: string;
+  message: string;
+};
 export type AppContextType = {
   openAddNewProfile: boolean;
   setOpenAddNewProfile: Dispatch<SetStateAction<boolean>>;
-  createProfile: (name: string, idade: string) => void; // Adicione a função createProfile ao tipo AppContextType
-  profiles: ProfileType[]; // Atualize o tipo para ProfileType[]
-  setProfiles: Dispatch<SetStateAction<ProfileType[]>>; // Atualize o tipo para Dispatch<SetStateAction<ProfileType[]>>profiles: ProfileType[]; // Atualize o tipo para ProfileType[]  setProfiles: Dispatch<SetStateAction<ProfileType[]>>; // Atualize o tipo para Dispatch<SetStateAction<ProfileType[]>>
 
+  createProfile: (name: string, idade: string) => void;
+  profiles: ProfileType[];
+  setProfiles: Dispatch<SetStateAction<ProfileType[]>>;
+
+  activateCustomNotifiication: (type: string, message: string) => void;
+  customNotification: NotificationType[];
+  setCustomNotification: Dispatch<SetStateAction<NotificationType[]>>;
+
+  openNotification: boolean;
+  setOpenNotification: Dispatch<SetStateAction<boolean>>;
 };
 
 export const AppContext = createContext<AppContextType>({
   openAddNewProfile: false,
   setOpenAddNewProfile: () => {},
-  createProfile: () => {}, // Defina uma implementação vazia para createProfile
-  profiles: [ ],
+
+  createProfile: () => {},
+  profiles: [],
   setProfiles: () => {},
+
+  activateCustomNotifiication: () => {},
+  customNotification: [],
+  setCustomNotification: () => {},
+
+  openNotification: false,
+  setOpenNotification: () => {},
 });
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [openAddNewProfile, setOpenAddNewProfile] = useState(false);
   const [profiles, setProfiles] = useState<ProfileType[]>([]);
+  const [openNotification, setOpenNotification] = useState(false);
+
+  const [customNotification, setCustomNotification] = useState<
+    NotificationType[]
+  >([{ type: "", message: "" }]);
+
+  const activateCustomNotifiication = (type: string, message: string) => {
+    setCustomNotification([{ type, message }]);
+    setOpenNotification(true);
+
+    setTimeout(() => {
+      setOpenNotification(false);
+    }, 4000);
+  };
 
   const getProfilesInLocalstorage = () => {
     let profilesInLocalstorage = localStorage.getItem("profiles");
@@ -45,7 +77,6 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
     }
     return [];
   };
-
 
   useEffect(() => {
     getProfilesInLocalstorage();
@@ -58,14 +89,25 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
       name,
       idade,
     });
-    
+
     localStorage.setItem("profiles", JSON.stringify(profilesInLocalstorage));
     setProfiles(profilesInLocalstorage);
     setOpenAddNewProfile(false);
   };
   return (
     <AppContext.Provider
-      value={{ openAddNewProfile, setOpenAddNewProfile, createProfile, profiles, setProfiles }}
+      value={{
+        openAddNewProfile,
+        setOpenAddNewProfile,
+        createProfile,
+        profiles,
+        setProfiles,
+        activateCustomNotifiication,
+        customNotification,
+        setCustomNotification,
+        openNotification,
+        setOpenNotification,
+      }}
     >
       {children}
     </AppContext.Provider>

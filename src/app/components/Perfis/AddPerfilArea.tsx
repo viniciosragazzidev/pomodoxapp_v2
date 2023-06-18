@@ -3,7 +3,7 @@ import { UserCirclePlus } from "@phosphor-icons/react";
 import { useContext, useState } from "react";
 
 export const AddPerfilArea = () => {
-  const { createProfile, setOpenAddNewProfile, openAddNewProfile, profiles } =
+  const { createProfile, setOpenAddNewProfile, openAddNewProfile, profiles,activateCustomNotifiication } =
     useContext(AppContext);
   const [name, setName] = useState("");
   const [idade, setIdade] = useState("");
@@ -11,7 +11,7 @@ export const AddPerfilArea = () => {
   const handleProfileButton = () => {
     let idadeConverted = Number(idade);
     if (name.trim() === "" || idadeConverted <= 0) {
-      alert("Dados invalidos");
+      activateCustomNotifiication('error', "Faltam dados, tente novamente!")
       return;
     }
 
@@ -21,6 +21,8 @@ export const AddPerfilArea = () => {
     }
 
     createProfile(name, idade);
+    activateCustomNotifiication('success', "Perfil criado com sucesso!");
+
     setOpenAddNewProfile(false);
     setName("");
     setIdade("");

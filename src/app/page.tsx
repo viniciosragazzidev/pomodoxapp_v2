@@ -4,12 +4,14 @@ import { useContext } from "react";
 import { AddPerfilArea } from "./components/Perfis/AddPerfilArea";
 import { PerfisArea } from "./components/Perfis/PerfisArea";
 import { AppContext } from "./context/AppContext";
+import { NotificationComponent } from "./components/Notification/notificationComponent";
 
 export default function Home() {
   const { openAddNewProfile, setOpenAddNewProfile } = useContext(AppContext);
 
   return (
-    <main className="flex  flex-col items-center px-10 max-[480px]:px-7 text-white text-center mt-5">
+    <main className="flex min-h-[80vh] justify-center flex-col items-center px-10 max-[480px]:px-7 text-white text-center mt-5">
+      
       <div className="container-top grid grid-cols-2 max-[865px]:grid-cols-1 gap-16 justify-between py-14  ">
         <section className=" flex flex-col gap-3 text-start w-full h-full justify-start items-start">
           <div className="text grid gap-5">

@@ -20,8 +20,9 @@ export default function RootLayout({
     <AppContextProvider>
       <html lang="pt-br">
         <body className={inter.className + " text-white"}>
+        <NotificationComponent />
+
           <NavbarTop />
-          <NotificationComponent/>
           {children}
         </body>
       </html>
