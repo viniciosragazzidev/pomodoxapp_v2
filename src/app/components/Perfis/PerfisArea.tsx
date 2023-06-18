@@ -14,7 +14,7 @@ export const PerfisArea = () => {
     <div className="perfis w-full  flex flex-col gap-5 justify-center items-center perfisArea">
       {profiles.length > 0 ? (
         profiles.map((profile, index) => (
-          <div className=" flex items-center gap-2 group" key={profile.id}>
+          <div className=" flex items-center gap-2 group select-none" key={profile.id}>
             <div
               className="perfil-box  w-[220px] h-14 rounded-md text-start  flex gap-5 text-sm group-hover:translate-x-[-30px]  px-3 hover:scale-95 
         transition-transform items-center py-2 cursor-pointer bg-[#060612] hover:bg-dark"
@@ -24,7 +24,7 @@ export const PerfisArea = () => {
               </div>
               <span className="font-bold text-white">{profile.name}</span>
             </div>
-            <span onClick={()=>{deleteProfile(profile.id)}} className="cursor-pointer hover:scale-95 transition-all opacity-0 -z-50 group-hover:opacity-100 group-hover:z-10 ">
+            <span onClick={()=>{deleteProfile(profile.id)}} className="cursor-pointer hover:scale-95 transition-all absolute opacity-0 -z-50 group-hover:opacity-100 group-hover:relative group-hover:z-10  max-[340px]:relative max-[340px]:z-10 max-[340px]:group-hover:opacity-100">
               <Trash size={24} weight="fill" />
             </span>
           </div>
