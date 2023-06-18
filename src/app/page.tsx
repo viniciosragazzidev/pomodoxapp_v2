@@ -26,7 +26,7 @@ export default function Home() {
 
           <div className="wrap w-16 h-[2px] bg-indigo-800 my-10"></div>
 
-          <div className="stats flex gap-5">
+          <div className="stats flex gap-5 max-[460px]:hidden">
             <div className="stat-box grid gap-3 px-1">
               <h3 className="number text-4xl font-bold">10</h3>
               <p className="text-sm font-light">
