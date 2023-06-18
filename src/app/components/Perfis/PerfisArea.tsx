@@ -24,7 +24,7 @@ export const PerfisArea = () => {
               </div>
               <span className="font-bold text-white">{profile.name}</span>
             </div>
-            <span onClick={()=>{deleteProfile(profile.id)}} className="cursor-pointer hover:scale-95 transition-all absolute opacity-0 -z-50 group-hover:opacity-100 group-hover:relative group-hover:z-10  max-[340px]:relative max-[340px]:z-10 max-[340px]:group-hover:opacity-100">
+            <span onClick={()=>{deleteProfile(profile.id)}} className="cursor-pointer hover:scale-95 transition-all absolute opacity-0 -z-50 group-hover:opacity-100 group-hover:relative group-hover:z-10 ">
               <Trash size={24} weight="fill" />
             </span>
           </div>
