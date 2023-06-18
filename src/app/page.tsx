@@ -15,7 +15,7 @@ export default function Home() {
       <div className="container-top grid grid-cols-2 max-[865px]:grid-cols-1 gap-16 justify-between py-14  ">
         <section className=" flex flex-col gap-3 text-start w-full h-full justify-start items-start">
           <div className="text grid gap-5">
-            <h1 className="text-4xl tracking-wide font-bold ">
+            <h1 className="text-4xl max-sm:text-3xl tracking-wide font-bold ">
               Impusione sua produtividade com o método pomodoro
             </h1>
             <p>
