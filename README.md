@@ -1,11 +1,11 @@
-# Pomodox
+# Pomodox ⏲️
 
 <p align="center">
-  <img src="fire_emoji.png" alt="Fire Emoji" width="20" height="20"> 🍅 <img src="clock_emoji.png" alt="Clock Emoji" width="20" height="20"> <img src="fire_emoji.png" alt="Fire Emoji" width="20" height="20">
+
 </p>
 
 <p align="center">
-  Um app pomodoro simples e eficiente para aumentar sua produtividade!
+  Um app pomodoro simples e eficiente para aumentar sua produtividade! 🍅
 </p>
 
 ## Visão Geral
@@ -21,7 +21,6 @@ Pomodox é um aplicativo pomodoro desenvolvido para ajudar você a gerenciar seu
 
 ## Capturas de Tela
 
-![Captura de Tela 1](![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/d1c9c280-b352-46f5-874a-b8461dc52315)
-)
-![Captura de Tela 2](![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/c67d67df-985a-43cf-a661-f3eb23a70795)
-)
+![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/8ce50742-3cdf-427c-a34c-b4bd5ee6884f)
+
+![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/63ec4481-6689-4422-8b8f-7355f0348419)
