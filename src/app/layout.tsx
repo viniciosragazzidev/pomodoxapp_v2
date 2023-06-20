@@ -1,6 +1,6 @@
 import { NavbarTop } from "./components/Header/NavbarTop";
 import { NotificationComponent } from "./components/Notification/notificationComponent";
-import AppContextProvider from "./context/AppContext";
+import AppContextProvider from "./_context/AppContext";
 import "./globals.css";
 import { Inter } from "next/font/google";
 

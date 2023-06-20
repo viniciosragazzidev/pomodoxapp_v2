@@ -1,5 +1,5 @@
 "use client";
-import { AppContext } from "@/app/context/AppContext";
+import { AppContext } from "@/app/_context/AppContext";
 import { BellRinging, CheckFat, Warning } from "@phosphor-icons/react";
 import { useContext } from "react";
 import styled from "styled-components";
