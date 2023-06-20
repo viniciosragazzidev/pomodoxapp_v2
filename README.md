@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pomodox
 
-## Getting Started
+<p align="center">
+  <img src="fire_emoji.png" alt="Fire Emoji" width="20" height="20"> 🍅 <img src="clock_emoji.png" alt="Clock Emoji" width="20" height="20"> <img src="fire_emoji.png" alt="Fire Emoji" width="20" height="20">
+</p>
 
-First, run the development server:
+<p align="center">
+  Um app pomodoro simples e eficiente para aumentar sua produtividade!
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Visão Geral
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pomodox é um aplicativo pomodoro desenvolvido para ajudar você a gerenciar seu tempo e melhorar a concentração durante suas tarefas. A técnica pomodoro é um método de gerenciamento de tempo que divide o trabalho em intervalos focados, chamados de "pomodoros", seguidos de pequenas pausas.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Configure o tempo do pomodoro e dos intervalos de pausa
+- Acompanhe seu progresso com um contador de pomodoros concluídos
+- Receba notificações para iniciar um novo pomodoro ou pausa
+- Personalize as configurações para atender às suas necessidades
 
-## Learn More
+## Capturas de Tela
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Captura de Tela 1](![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/d1c9c280-b352-46f5-874a-b8461dc52315)
+)
+![Captura de Tela 2](![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/c67d67df-985a-43cf-a661-f3eb23a70795)
+)
