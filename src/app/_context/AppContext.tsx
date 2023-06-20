@@ -155,6 +155,7 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
     );
 
     if (profileById) {
+      setCurrentProfileLogged(profileById)
       return profileById;
     }
     return null;
@@ -165,50 +166,64 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const [loadingLoginByProfile, setLoadingLoginByProfile] = useState(false);
 
   // Faz login usando um perfil
-  const logInByProfile = (id: string) => {
-    let profilesInLocalStorage = getProfilesInLocalStorage();
-    let profileById = findProfileById(id);
+  const logInByProfile = async (id: string) => {
+    let profileById = await findProfileById(id);
     localStorage.setItem("loggedByProfile", profileById?.id + "");
-    isLoggedByProfileVerify();
+    isLoggedByProfileVerify()
+      .then(() => {
+        router.push("/pomodox");
+        activateCustomNotification("success", "Logado com sucesso");
+      })
+      .catch((error) => {
+        // Ações a serem executadas em caso de erro na promessa
+        console.error("Erro na promessa:", error);
+      });
   };
 
-  // Faz login usando um perfil
+  // Faz logout usando um perfil
   const logOutByProfile = () => {
     localStorage.removeItem("loggedByProfile");
     setLoggedByProfile(false);
+    setCurrentProfileLogged([])
     router.push("/");
     activateCustomNotification("success", "Deslogado com sucesso");
   };
 
   // Verifica se há um perfil logado
-  const isLoggedByProfileVerify = () => {
+  const isLoggedByProfileVerify = (): Promise<void> => {
     let loggedId = localStorage.getItem("loggedByProfile");
 
     if (loggedId) {
       let verifyIfValid = findProfileById(loggedId);
-
+  
       if (verifyIfValid) {
         setLoggedByProfile(true);
         setCurrentProfileLogged([verifyIfValid]);
-        console.log("valid", verifyIfValid);
-
         setLoadingLoginByProfile(true);
-        setTimeout(() => {
-          setLoggedByProfile(true);
-          router.push("/pomodox");
-          setLoadingLoginByProfile(false);
-          activateCustomNotification("success", "Logado com sucesso");
-        }, 2000);
+
+        // Criar uma promessa
+        let promise = new Promise<void>((resolve, reject) => {
+          setTimeout(() => {
+            setLoggedByProfile(true);
+            setLoadingLoginByProfile(false);
+     
+            resolve(); // Resolver a promessa após o tempo determinado
+          }, 2000);
+        });
+
+        return promise;
       } else {
         alert("Error");
       }
     }
+
     setLoggedByProfile(false);
     console.log("err");
     router.push("/");
 
-    return false;
+    return Promise.reject(); // Rejeitar a promessa sem fornecer um valor
   };
+
 
   return (
     <AppContext.Provider

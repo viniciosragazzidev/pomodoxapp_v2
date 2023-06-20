@@ -60,7 +60,7 @@ export default function Home({}) {
             className="text grid gap-5"
           >
             <h1 className="text-4xl max-sm:text-3xl tracking-wide font-bold ">
-              Impusione sua produtividade com o método pomodoro
+              Impusione sua produtividade com o <span className="text-custom-purple">método pomodoro</span>
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint

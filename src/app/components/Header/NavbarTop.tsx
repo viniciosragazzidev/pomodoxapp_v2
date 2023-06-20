@@ -16,7 +16,7 @@ export const NavbarTop = () => {
         
 
         <button
-          className="py-[10px] max-[480px]:py-2 border-white border w-36 max-[480px]:w-32  rounded-md cursor-pointer transition-all hover:scale-95"
+          className="py-[10px] max-[480px]:py-2 border-custom-purple border w-36 max-[480px]:w-32  rounded-md cursor-pointer transition-all hover:scale-95"
           type="button"
         >
           Acessar Conta

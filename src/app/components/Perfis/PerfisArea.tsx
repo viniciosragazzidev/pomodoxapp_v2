@@ -5,7 +5,7 @@ import Avatar from "../../_media/avatar.jpg";
 import Avatar2 from "../../_media/avatar2.jpg";
 import { Spinner, Trash, UserCirclePlus } from "@phosphor-icons/react";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "@/app/_context/AppContext";
+import { AppContext, ProfileType } from "@/app/_context/AppContext";
 export const PerfisArea = () => {
   const {
     openAddNewProfile,
@@ -17,12 +17,13 @@ export const PerfisArea = () => {
     currentProfileLogged,
   } = useContext(AppContext);
 
-  const [currentProfileLoggedId, setCurrentProfileLoggedId] = useState();
+  const [currentProfileLoggedId, setCurrentProfileLoggedId] =
+    useState<ProfileType>();
   useEffect(() => {
-    if (currentProfileLogged) {
-      console.log(currentProfileLogged);
+    if (currentProfileLogged?.[0]) {
+      setCurrentProfileLoggedId(currentProfileLogged?.[0]);
     }
-  }, []);
+  }, [currentProfileLogged]);
 
   return (
     <div className="perfis w-full  flex flex-col gap-5 justify-center items-center perfisArea">
@@ -45,14 +46,22 @@ export const PerfisArea = () => {
               onClick={() => {
                 logInByProfile(profile.id);
               }}
-              className="perfil-box  w-[220px] h-14 rounded-md text-start  flex gap-5 text-sm group-hover:translate-x-[-30px] duration-100  px-3 hover:scale-95 
-        transition-transform items-center py-2 cursor-pointer bg-[#060612] hover:bg-dark"
+              className={`perfil-box  w-[220px] h-14 rounded-md text-start  flex gap-5 text-sm group-hover:translate-x-[-30px] duration-100  px-3 hover:scale-95 
+              transition-transform items-center py-2 cursor-pointer ${
+                currentProfileLoggedId?.id === profile.id &&
+                "bg-[#100023] border-b-2 border-custom-purple"
+              } bg-[#060612] hover:bg-dark`}
             >
               <div className="logo w-10 h-10 rounded-full bg-black border-white border overflow-hidden">
-                <Image src={Avatar2} alt="Logo" />
+                <Image src={Avatar} alt="Logo" />
               </div>
-              <span className="font-bold text-white">
-                {profile.name} {}
+              <span
+                className={` text-white flex items-center  ${
+                  currentProfileLoggedId?.id === profile.id &&
+                  "font-bold "
+                }`}
+              >
+                {profile.name}
               </span>
             </div>
             <span

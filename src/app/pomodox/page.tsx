@@ -14,7 +14,7 @@ export default function Pomodox() {
           {loggedByProfile && currentProfileLogged ? (
             <span>
               {currentProfileLogged && currentProfileLogged[0].name}{" "}
-              <span className="text-violet-600 font-bold">(Local)</span> /
+              <span className="text-custom-purple font-bold">(Local)</span> /
               <span
                 onClick={() => {
                   logOutByProfile();
