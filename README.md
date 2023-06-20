@@ -21,6 +21,5 @@ Pomodox é um aplicativo pomodoro desenvolvido para ajudar você a gerenciar seu
 
 ## Capturas de Tela
 
-![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/8ce50742-3cdf-427c-a34c-b4bd5ee6884f)
-
+![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/8d5aa516-a609-450a-8134-ed1fb0243d34)
 ![image](https://github.com/viniciosragazzidev/pomodoxapp_v2/assets/125518719/63ec4481-6689-4422-8b8f-7355f0348419)
