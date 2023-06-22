@@ -4,8 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { AddPerfilArea } from "./components/Perfis/AddPerfilArea";
 import { PerfisArea } from "./components/Perfis/PerfisArea";
 import { AppContext } from "./_context/AppContext";
-import { useRouter } from "next/navigation";
-import { NotificationComponent } from "./components/Notification/notificationComponent";
 import {
   useMotionValue,
   motion,
