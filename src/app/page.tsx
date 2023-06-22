@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AddPerfilArea } from "./components/Perfis/AddPerfilArea";
 import { PerfisArea } from "./components/Perfis/PerfisArea";
 import { AppContext } from "./_context/AppContext";
+import { useRouter } from "next/navigation";
 import { NotificationComponent } from "./components/Notification/notificationComponent";
 import {
   useMotionValue,
@@ -47,6 +48,7 @@ export default function Home({}) {
         };
       }, 900);
     }, 1000);
+    
   }, []);
 
   return (
@@ -146,7 +148,7 @@ export default function Home({}) {
         >
           <section className="flex flex-col w-full h-full justify-center text-center items-center gap-10 ">
             <h4 className="text-lg font-bold">
-              Selecione o perfil abaixo que deseja iniciar.
+              Selecione o perfil local abaixo que deseja iniciar.
             </h4>
             {openAddNewProfile ? <AddPerfilArea /> : <PerfisArea />}
           </section>

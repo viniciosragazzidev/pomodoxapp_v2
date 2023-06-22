@@ -2,10 +2,11 @@
 import { useContext } from "react";
 import { AppContext } from "../_context/AppContext";
 import { Spinner } from "@phosphor-icons/react";
+import { ProfileContext } from "../_context/ProfilesContext";
 
 export default function Pomodox() {
   const { loggedByProfile, currentProfileLogged, logOutByProfile } =
-    useContext(AppContext);
+    useContext(ProfileContext);
 
   return (
     <>

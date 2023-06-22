@@ -6,17 +6,16 @@ import Avatar2 from "../../_media/avatar2.jpg";
 import { Spinner, Trash, UserCirclePlus } from "@phosphor-icons/react";
 import { useContext, useEffect, useState } from "react";
 import { AppContext, ProfileType } from "@/app/_context/AppContext";
+import { ProfileContext } from "@/app/_context/ProfilesContext";
 export const PerfisArea = () => {
+  const { openAddNewProfile, setOpenAddNewProfile } = useContext(AppContext);
   const {
-    openAddNewProfile,
-    setOpenAddNewProfile,
     profiles,
     deleteProfile,
     logInByProfile,
     loadingLoginByProfile,
     currentProfileLogged,
-  } = useContext(AppContext);
-
+  } = useContext(ProfileContext);
   const [currentProfileLoggedId, setCurrentProfileLoggedId] =
     useState<ProfileType>();
   useEffect(() => {
@@ -57,8 +56,7 @@ export const PerfisArea = () => {
               </div>
               <span
                 className={` text-white flex items-center  ${
-                  currentProfileLoggedId?.id === profile.id &&
-                  "font-bold "
+                  currentProfileLoggedId?.id === profile.id && "font-bold "
                 }`}
               >
                 {profile.name}
