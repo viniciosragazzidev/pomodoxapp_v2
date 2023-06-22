@@ -11,7 +11,6 @@ import {
   motion,
   useTransform,
   animate,
-  AnimatePresence,
 } from "framer-motion";
 
 export default function Home({}) {

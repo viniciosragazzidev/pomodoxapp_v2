@@ -1,13 +1,7 @@
 "use client";
 import { Envelope, EyeSlash, GoogleLogo, LockKey } from "@phosphor-icons/react";
 import Link from "next/link";
-import {
-  useMotionValue,
-  motion,
-  useTransform,
-  animate,
-  AnimatePresence,
-} from "framer-motion";
+import { motion } from "framer-motion";
 export default function Signin() {
   return (
     <div className="w-full min-h-[75vh] px-10 max-[480px]:px-7 flex justify-center items-center ">
