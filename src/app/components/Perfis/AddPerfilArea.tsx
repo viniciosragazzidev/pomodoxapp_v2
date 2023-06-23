@@ -9,6 +9,7 @@ export const AddPerfilArea = () => {
     openAddNewProfile,
     activateCustomNotification,
   } = useContext(AppContext);
+  
   const { createProfile, profiles } = useContext(ProfileContext);
   const [name, setName] = useState("");
   const [idade, setIdade] = useState("");
