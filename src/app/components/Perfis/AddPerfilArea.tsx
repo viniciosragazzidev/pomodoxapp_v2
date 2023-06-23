@@ -1,10 +1,13 @@
 import { AppContext } from "@/app/_context/AppContext";
+import { ProfileContext } from "@/app/_context/ProfilesContext";
 import { UserCirclePlus } from "@phosphor-icons/react";
 import { useContext, useState } from "react";
 
 export const AddPerfilArea = () => {
-  const { createProfile, setOpenAddNewProfile, openAddNewProfile, profiles, activateCustomNotification } =
+  const {  setOpenAddNewProfile, openAddNewProfile, activateCustomNotification } =
     useContext(AppContext);
+    const { createProfile, profiles } =
+    useContext(ProfileContext);
   const [name, setName] = useState("");
   const [idade, setIdade] = useState("");
 
