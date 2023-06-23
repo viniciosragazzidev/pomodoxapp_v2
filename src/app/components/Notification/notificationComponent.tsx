@@ -3,10 +3,6 @@ import { AppContext } from "@/app/_context/AppContext";
 import { BellRinging, CheckFat, Warning } from "@phosphor-icons/react";
 import { useContext } from "react";
 
-
-
-
-
 export const NotificationComponent = () => {
   const { customNotification, openNotification } = useContext(AppContext);
 
