@@ -2,6 +2,7 @@
 
 import {
   Dispatch,
+  FocusEvent,
   ReactNode,
   SetStateAction,
   createContext,
@@ -27,6 +28,11 @@ export type AppContextType = {
   customNotification: NotificationType[];
   setCustomNotification: Dispatch<SetStateAction<NotificationType[]>>;
 
+  handleFocusEvent: (e: FocusEvent<HTMLInputElement>) => void;
+  handleBlurEvent: () => void;
+
+  currentFocus: string;
+  setCurrentFocus: Dispatch<SetStateAction<string>>;
   openNotification: boolean;
   setOpenNotification: Dispatch<SetStateAction<boolean>>;
 };
@@ -38,6 +44,11 @@ export const AppContext = createContext<AppContextType>({
   activateCustomNotification: () => {},
   customNotification: [],
   setCustomNotification: () => {},
+
+  currentFocus: "",
+  setCurrentFocus: () => {},
+  handleFocusEvent: (e: FocusEvent<HTMLInputElement>) => {},
+  handleBlurEvent: () => {},
 
   openNotification: false,
   setOpenNotification: () => {},
@@ -61,9 +72,15 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
     }, 4000);
   };
 
+  const [currentFocus, setCurrentFocus] = useState("");
 
-
-  const contextValue ={
+  const handleFocusEvent = (e: FocusEvent<HTMLInputElement>) => {
+    setCurrentFocus(e.target.id);
+  };
+  const handleBlurEvent = () => {
+    setCurrentFocus("");
+  };
+  const contextValue = {
     openAddNewProfile,
     setOpenAddNewProfile,
 
@@ -72,14 +89,15 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
     setCustomNotification,
     openNotification,
     setOpenNotification,
-  }
+
+    handleFocusEvent,
+    currentFocus,
+    setCurrentFocus,
+    handleBlurEvent
+  };
 
   return (
-    <AppContext.Provider
-      value={contextValue}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
 

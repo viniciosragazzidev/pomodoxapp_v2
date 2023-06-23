@@ -9,7 +9,7 @@
 
 body {
   width: 100%;
-
+  -webkit-font-smoothing: antialiased;
   background-size: cover;
   background-position: center center;
   background-repeat: repeat;

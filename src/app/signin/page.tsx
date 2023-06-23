@@ -2,7 +2,11 @@
 import { Envelope, EyeSlash, GoogleLogo, LockKey } from "@phosphor-icons/react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FocusEvent, FocusEventHandler, useContext, useState } from "react";
+import { AppContext } from "../_context/AppContext";
 export default function Signin() {
+  const { handleFocusEvent, currentFocus, handleBlurEvent } =
+    useContext(AppContext);
   return (
     <div className="w-full min-h-[75vh] px-10 max-[480px]:px-7 flex justify-center items-center ">
       <div className="container w-full h-full grid grid-cols-2 max-sm:grid-cols-1 max-sm:gap-10 max-sm:py-10">
@@ -44,29 +48,69 @@ export default function Signin() {
         >
           <form className="flex flex-col w-full max-w-sm gap-5">
             <div className="form-group flex flex-col  gap-2 ">
-              <div className="input-area flex w-full h-12 px-2 items-center gap-3 border border-slate-700 rounded-md ">
-                <Envelope size={20} color={"#6773e7"} weight="fill" />
+              <div
+                className={`input-area flex w-full relative h-12 overflow-hidden  items-center gap-3 border  rounded-md ${
+                  currentFocus === "email"
+                    ? "border-custom-purple"
+                    : "border-slate-700"
+                }`}
+              >
+                <span
+                  className={`absolute left-2 z-50  ${
+                    currentFocus === "email"
+                      ? "text-custom-purple"
+                      : " text-slate-700"
+                  }`}
+                >
+                  <Envelope size={20} weight="fill" />
+                </span>
                 <input
                   type="email"
-                  className="form-control w-full h-full bg-transparent px-2 focus:border-none focus:outline-none caret-transparent"
+                  className="form-control w-full h-full bg-transparent  px-10 absolute focus:border-none focus:outline-none caret-transparent "
                   id="email"
-                  placeholder="Email"
-                  autoComplete="false"
+                  placeholder="Seu E-mail"
+                  autoComplete="off"
+                  onFocus={handleFocusEvent}
+                  onBlur={handleBlurEvent}
                 />
               </div>
             </div>
             <div className="form-group flex flex-col  gap-2 ">
-              <div className="input-area flex w-full h-12 px-2 items-center gap-3 border border-slate-700 rounded-md ">
-                <LockKey size={20} color={"#6773e7"} weight="fill" />
-
+              <div
+                className={`input-area flex w-full relative h-12 overflow-hidden  items-center gap-3 border  rounded-md ${
+                  currentFocus === "password"
+                    ? "border-custom-purple"
+                    : "border-slate-700"
+                }`}
+              >
+                <span
+                  className={`absolute left-2 z-50  ${
+                    currentFocus === "password"
+                      ? "text-custom-purple"
+                      : " text-slate-700"
+                  }`}
+                >
+                  <LockKey size={20} weight="fill" />
+                </span>
                 <input
                   type="password"
-                  className="form-control w-full h-full bg-transparent px-2 focus:border-none focus:outline-none caret-transparent"
+                  className="form-control w-full h-full bg-transparent px-10 absolute focus:border-none focus:outline-none caret-transparent "
                   id="password"
-                  placeholder="Password"
-                  autoComplete="false"
+                  placeholder="Sua senha"
+                  autoComplete="off"
+                  onFocus={handleFocusEvent}
+                  onBlur={handleBlurEvent}
                 />
-                <EyeSlash size={20} color={"#6773e7"} weight="fill" />
+                <span
+                  className={`absolute  right-2 cursor-pointer  ${
+                    currentFocus === "password"
+                      ? "text-custom-purple"
+                      : " text-slate-700"
+                  }`}
+                ></span>{" "}
+                <span className="absolute right-2 cursor-pointer">
+                  <EyeSlash size={20} color={"#6773e7"} weight="fill" />
+                </span>
               </div>
             </div>
             <span className="recoverPass text-custom-purple cursor-pointer hover:scale-95 transition-all  text-sm ">
