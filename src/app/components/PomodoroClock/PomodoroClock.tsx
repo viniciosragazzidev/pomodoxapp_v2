@@ -1,5 +1,6 @@
 import {
   ClockClockwise,
+  GearSix,
   Pause,
   Play,
   RewindCircle,
@@ -41,6 +42,7 @@ const PomodoroClock = () => {
       cronometro(degAtual, segundosRestantes);
     }
   };
+
   const pause = () => {
     setPaused(false);
     if (timer) {
@@ -69,19 +71,30 @@ const PomodoroClock = () => {
     const minutos = Math.floor(segundosRestantes / 60);
     const segundos = segundosRestantes % 60;
     const segFormated = ` ${segundos} seg`;
-    const minFormated = minutos === 0 ? '' : ` ${minutos} min`;
+    const minFormated = minutos === 0 ? "" : ` ${minutos} min`;
     return `${minFormated}  ${segFormated}`;
   };
   return (
-    <div className="pomodoro-clock w-full h-full flex flex-col gap-4 justify-center items-center max-md:py-10">
-      <div className="flex"></div>
+    <div className="pomodoro-clock w-full h-full flex flex-col gap-4 justify-center items-center max-md:py-10 relative">
+ 
+      <div className="flex w-full max-w-xs justify-center relative">
+      <span
+        onClick={() => {}}
+        className="cursor-pointer hover:text-custom-purple-hover transition-all absolute left-0 top-0"
+      >
+        <GearSix size={24} weight="fill" />
+      </span>
+        <span>Start to Focus</span>
+      </div>
       <div
         className="circular-progress w-64 h-64 relative rounded-full bg-[#060314] flex items-center justify-center before:w-56 before:h-56 before:absolute before:bg-black before:rounded-full"
         style={{
           background: `conic-gradient(#ededed ${degAtual}deg, #4334c7 0deg`,
         }}
       >
-        <span className="text-white text-2xl font-bold z-50">{getTempoAtual()}</span>
+        <span className="text-white text-2xl font-bold z-50">
+          {getTempoAtual()}
+        </span>
       </div>
 
       <div className="flex w-full justify-between max-w-[100px]">

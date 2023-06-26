@@ -37,7 +37,7 @@ export default function TodoComponent() {
         </div>
         <div className="todos w-full grid divide-y-4 divide-dark max-h-[400px] overflow-y-auto overflow-x-hidden  scrollbar scrollbar-thumb-custom-purple-hover scrollbar-w-1">
           {Array.from({ length: 5 }, (_, index) => (
-            <div className="todo  flex justify-between items-center gap-2 h-16 bg-[#060314] px-4 rounded-md w-full max-[420px]:max-w-xs ">
+            <div key={index} className="todo  flex justify-between items-center gap-2 h-16 bg-[#060314] px-4 rounded-md w-full max-[420px]:max-w-xs ">
               <div className="flex gap-2 ">
                 <input type="checkbox" className="check" id="check" />
                 <label
