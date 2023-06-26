@@ -203,49 +203,7 @@ export default function Signup() {
                 </span>
               </div>
             </div>
-            {/* <div className="form-group flex   gap-2 ">
-              <div className="input-area flex  items-center justify-center w-full h-12 px-2  gap-3 border border-slate-700 rounded-md ">
-                <div className="inputs-flex flex items-center gap-2">
-                  <div className="input flex  gap-2">
-                    <span className="text-slate-400">Mas</span>
-                    <input
-                      className=" accent-custom-purple"
-                      type="radio"
-                      name="gen"
-                      id="mas"
-                      checked
-                    />
-                  </div>
-                  <div className="input flex gap-2">
-                    <span className="text-slate-400">Fem</span>
-                    <input
-                      className=" accent-custom-purple"
-                      type="radio"
-                      name="gen"
-                      id="fem"
-                    />
-                  </div>
-                </div>
-              </div>
-               <div
-                className={`input-area flex w-full relative h-12  items-center gap-3 border  rounded-md ${
-                  currentFocus === "email"
-                    ? "border-custom-purple"
-                    : "border-slate-700"
-                }`}
-              >
-                <User size={20} color={"#6773e7"} weight="fill" />
-                <input
-                  type="date"
-                  className="form-control w-full h-full bg-transparent px-8 absolute focus:border-none focus:outline-none caret-transparent "
-                  id="surname"
-                  placeholder="Sobrenome"
-                                                autoComplete="off"
-                  onFocus={handleFocusEvent} onBlur={handleBlurEvent}
-
-                />
-              </div>
-            </div> */}
+          
 
             <button className="w-full h-12 bg-custom-purple rounded-md uppercase font-bold hover:scale-[0.98] hover:bg-custom-purple-hover transition-all">
               Entrar

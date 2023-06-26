@@ -38,6 +38,15 @@ body {
 .notificationBox.show {
   transform: translateX(-440px);
 }
+
+
+
+/*Remove scrool y by .todo*/
+
+.todo::-webkit-scrollbar {
+
+  display: none;
+}
 @keyframes emerge {
   0% {
     opacity: 0;

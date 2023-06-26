@@ -23,7 +23,7 @@ export default function RootLayout({
     <AppContextProvider>
       <ProfileContextProvider>
         <html lang="pt-br">
-          <body className={inter.className + " text-white"}>
+          <body className={inter.className + " text-white scrollbar scrollbar-thumb-custom-purple-hover"}>
             <NotificationComponent />
 
             <NavbarTop />
