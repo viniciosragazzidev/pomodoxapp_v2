@@ -1,6 +1,12 @@
+import { PomodoroContext } from "@/app/_context/PomodoroContext";
+import { TodoContext } from "@/app/_context/TodoContext";
 import { Pencil, Play, WifiMedium } from "@phosphor-icons/react";
+import { useContext } from "react";
 
 export default function TodoComponent() {
+  const {openModalTodo, setOpenModalTodo} = useContext(TodoContext)
+  const {setOpenModalPomodoro} = useContext(PomodoroContext)
+
   return (
     <div className="w-full h-full px-2 max-[420px]:max-w-xs flex flex-col gap-6 justify-center items-center">
       <div className=" flex flex-col max-w-lg max-md:max-w-none max-[420px]:max-w-xs gap-5">
@@ -13,7 +19,7 @@ export default function TodoComponent() {
           </p>
         </header>
         <div className="flex justify-between w-full h-10 gap-4">
-          <button className="add bg-custom-purple-hover px-5  rounded-md hover:scale-95 hover:bg-custom-purple-hover transition-all">
+          <button onClick={()=>{setOpenModalTodo(true); setOpenModalPomodoro(false)} } className="add bg-custom-purple-hover px-5  rounded-md hover:scale-95 hover:bg-custom-purple-hover transition-all">
             Adicionar
           </button>
 

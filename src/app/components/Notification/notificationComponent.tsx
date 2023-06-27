@@ -8,7 +8,7 @@ export const NotificationComponent = () => {
 
   return (
     <div
-      className={` notificationBox flex flex-col justify-center items-center text-center gap-2 ${
+      className={` notificationBox flex flex-col justify-center items-center text-center gap-2 z-50 ${
         openNotification ? "show" : null
       }`}
     >

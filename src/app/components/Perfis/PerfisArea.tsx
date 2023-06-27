@@ -66,7 +66,7 @@ export const PerfisArea = () => {
               onClick={() => {
                 deleteProfile(profile.id);
               }}
-              className="cursor-pointer hover:scale-95 transition-all absolute opacity-0 -z-50 group-hover:opacity-100 group-hover:relative group-hover:z-10 duration-100 "
+              className="cursor-pointer hover:scale-95 transition-all absolute opacity-0 -z-40 group-hover:opacity-100 group-hover:relative group-hover:z-10 duration-100 "
             >
               <Trash size={24} weight="fill" />
             </span>

@@ -1,3 +1,5 @@
+import { PomodoroContext } from "@/app/_context/PomodoroContext";
+import { TodoContext } from "@/app/_context/TodoContext";
 import {
   ClockClockwise,
   GearSix,
@@ -6,7 +8,7 @@ import {
   RewindCircle,
 } from "@phosphor-icons/react";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const PomodoroClock = () => {
   const [totalMinutos, setTotalMinutos] = useState<number>(1);
@@ -74,13 +76,17 @@ const PomodoroClock = () => {
     const minFormated = minutos === 0 ? "" : ` ${minutos} min`;
     return `${minFormated}  ${segFormated}`;
   };
+
+  const {setOpenModalPomodoro, openModalPomodoro} = useContext(PomodoroContext)
+  const {setOpenModalTodo} = useContext(TodoContext)
+
   return (
     <div className="pomodoro-clock w-full h-full flex flex-col gap-4 justify-center items-center max-md:py-10 relative">
  
       <div className="flex w-full max-w-xs justify-center relative">
       <span
-        onClick={() => {}}
-        className="cursor-pointer hover:text-custom-purple-hover transition-all absolute left-0 top-0"
+        onClick={() => {setOpenModalPomodoro(!openModalPomodoro); setOpenModalTodo(false)}}
+        className="cursor-pointer select-none hover:text-custom-purple-hover transition-all absolute left-0 top-0"
       >
         <GearSix size={24} weight="fill" />
       </span>
@@ -92,7 +98,7 @@ const PomodoroClock = () => {
           background: `conic-gradient(#ededed ${degAtual}deg, #4334c7 0deg`,
         }}
       >
-        <span className="text-white text-2xl font-bold z-50">
+        <span className="text-white text-2xl font-bold z-40 select-none">
           {getTempoAtual()}
         </span>
       </div>
@@ -104,7 +110,7 @@ const PomodoroClock = () => {
               onClick={() => {
                 start();
               }}
-              className="cursor-pointer hover:text-custom-purple-hover transition-all"
+              className="cursor-pointer hover:text-custom-purple-hover transition-all select-none"
             >
               <Play size={24} weight="fill" />
             </span>
@@ -113,7 +119,7 @@ const PomodoroClock = () => {
               onClick={() => {
                 pause();
               }}
-              className="cursor-pointer text-xl hover:text-custom-purple-hover transition-all"
+              className="cursor-pointer text-xl hover:text-custom-purple-hover transition-all select-none"
             >
               <Pause size={24} weight="fill" />
             </span>

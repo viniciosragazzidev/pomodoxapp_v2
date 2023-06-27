@@ -58,7 +58,7 @@ export default function Signup() {
                 }`}
               >
                 <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "name"
                       ? "text-custom-purple"
                       : " text-slate-700"
@@ -83,7 +83,7 @@ export default function Signup() {
                 }`}
               >
                 <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "surname"
                       ? "text-custom-purple"
                       : " text-slate-700"
@@ -110,7 +110,7 @@ export default function Signup() {
                 }`}
               >
                <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "email"
                       ? "text-custom-purple"
                       : " text-slate-700"
@@ -137,7 +137,7 @@ export default function Signup() {
                 }`}
               >
               <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "password"
                       ? "text-custom-purple"
                       : " text-slate-700"
@@ -174,7 +174,7 @@ export default function Signup() {
                 }`}
               >
               <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "passwordTwo"
                       ? "text-custom-purple"
                       : " text-slate-700"

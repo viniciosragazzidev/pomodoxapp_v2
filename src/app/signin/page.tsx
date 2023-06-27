@@ -56,7 +56,7 @@ export default function Signin() {
                 }`}
               >
                 <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "email"
                       ? "text-custom-purple"
                       : " text-slate-700"
@@ -84,7 +84,7 @@ export default function Signin() {
                 }`}
               >
                 <span
-                  className={`absolute left-2 z-50  ${
+                  className={`absolute left-2 z-40  ${
                     currentFocus === "password"
                       ? "text-custom-purple"
                       : " text-slate-700"
