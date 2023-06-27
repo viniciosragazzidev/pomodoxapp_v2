@@ -4,11 +4,8 @@ import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
 import { styled } from "@mui/material/styles";
-import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch, { SwitchProps } from "@mui/material/Switch";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import Switch from "@mui/material/Switch";
 import { PomodoroContext } from "@/app/_context/PomodoroContext";
 
 export default function ModalPomodoroClock() {
@@ -29,7 +26,7 @@ export default function ModalPomodoroClock() {
     return `${value}`;
   }
 
-  const Android12Switch = styled(Switch)(({ theme }) => ({
+    const Android12Switch = styled(Switch)(({ theme }) => ({
     padding: 8,
     "& .MuiSwitch-track": {
       borderRadius: 22 / 2,
@@ -68,7 +65,7 @@ export default function ModalPomodoroClock() {
   return (
 
       <div
-        className={`modal z-50 w-full h-full flex flex-col gap-5 max-w-[480px] bg-[#060314] rounded-2xl px-4 py-10 fixed top-0 left-0  transition-transform ${openModalPomodoro ? 'translate-x-0' : 'translate-x-[-100vh]'}`}
+        className={`modal z-50 w-full h-full flex flex-col overflow-y-auto gap-5 max-w-[480px] bg-[#060314] rounded-2xl px-4 py-10 fixed top-0 left-0  transition-transform ${openModalPomodoro ? 'translate-x-0' : 'translate-x-[-100vh]'}`}
       >
         <header className="flex justify-between items-center">
           <div className="flex flex-col">

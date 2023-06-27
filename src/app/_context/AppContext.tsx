@@ -28,7 +28,7 @@ export type AppContextType = {
   customNotification: NotificationType[];
   setCustomNotification: Dispatch<SetStateAction<NotificationType[]>>;
 
-  handleFocusEvent: (e: FocusEvent<HTMLInputElement>) => void;
+  handleFocusEvent: (e: FocusEvent<HTMLInputElement | HTMLSelectElement | Element>) => void;
   handleBlurEvent: () => void;
 
   currentFocus: string;
@@ -47,7 +47,7 @@ export const AppContext = createContext<AppContextType>({
 
   currentFocus: "",
   setCurrentFocus: () => {},
-  handleFocusEvent: (e: FocusEvent<HTMLInputElement>) => {},
+  handleFocusEvent: (e: FocusEvent<HTMLInputElement | HTMLSelectElement | Element>) => {},
   handleBlurEvent: () => {},
 
   openNotification: false,
@@ -74,7 +74,7 @@ const AppContextProvider = ({ children }: { children: ReactNode }) => {
 
   const [currentFocus, setCurrentFocus] = useState("");
 
-  const handleFocusEvent = (e: FocusEvent<HTMLInputElement>) => {
+  const handleFocusEvent = (e: FocusEvent<HTMLInputElement | HTMLSelectElement | Element>) => {
     setCurrentFocus(e.target.id);
   };
   const handleBlurEvent = () => {

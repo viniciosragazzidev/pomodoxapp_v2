@@ -8,6 +8,8 @@ import { usePathname, useRouter } from "next/navigation";
 export const NavbarTop = () => {
   const pathname = usePathname();
   const router = useRouter();
+
+
   return (
     <nav
       className={`w-full h-20  px-10 max-[480px]:px-5 max-[340px]:px-2 ${
@@ -18,7 +20,7 @@ export const NavbarTop = () => {
     >
       <h2
         onClick={() => {
-          router.back();
+         pathname === "/signup" || pathname === "/signin" ? router.back() :   router.push('/')
         }}
         className="logo text-2xl max-[480px]:text-xl font-bold  flex gap-2 items-center cursor-pointer"
       >
