@@ -3,9 +3,6 @@ import { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
-import { styled } from "@mui/material/styles";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
 import { PomodoroContext } from "@/app/_context/PomodoroContext";
 
 export default function ModalPomodoroClock() {
