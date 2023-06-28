@@ -10,6 +10,10 @@ export default function ModalPomodoroClock() {
   const [valueDurationShortBreak, setValueDurationShortBreak] = useState(0);
   const [valueDurationLongBreak, setValueDurationLongBreak] = useState(0);
 
+  const [notifificationSound, setNotifificationSound] = useState(false);
+  const [fullscreenMode, setFullscreenMode] = useState(false);
+  const [notificationByPush, setNotificationByPush] = useState(false);
+  
   function valueTextDurantionPomodoro(value: number) {
     setValueDurationPomodoro(value);
     return `${value}`;
