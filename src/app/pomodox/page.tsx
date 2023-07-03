@@ -15,7 +15,7 @@ export default function Pomodox() {
     <ModalPomodoroClock/> 
     <TodoModalComponent/> 
       {loggedByProfile ? (
-        <div className="text-white">
+        <div className="text-white py-10">
           {currentProfileLogged && (
             <main className="w-full h-full flex justify-center flex-col items-center px-10 max-[480px]:px-7 max-lg:py-10  max-sm:py-0 max-sm:pb-10">
               <div className="container grid grid-cols-2 max-lg:grid-cols-1 max-lg:gap-11 ">

@@ -10,9 +10,12 @@ import {
   useTransform,
   animate,
 } from "framer-motion";
+import { TodoContext } from "./_context/TodoContext";
 
 export default function Home({}) {
   const { openAddNewProfile, setOpenAddNewProfile } = useContext(AppContext);
+  const { setTodos } = useContext(TodoContext);
+
 
   const count1 = useMotionValue(0);
   const count2 = useMotionValue(0);
@@ -45,11 +48,12 @@ export default function Home({}) {
         };
       }, 900);
     }, 1000);
+    setTodos([])
     
   }, []);
 
   return (
-    <main className="flex min-h-[80vh] justify-center flex-col items-center px-10 max-[480px]:px-7 text-white text-center mt-5">
+    <main className="flex  min-h-[80vh] justify-center flex-col items-center px-10 max-[480px]:px-7 text-white text-center mt-5">
       <div className="container-top grid grid-cols-2 max-[865px]:grid-cols-1 gap-16 justify-between py-14  ">
         <section className=" flex flex-col gap-3 text-start w-full h-full justify-start items-start">
           <motion.div

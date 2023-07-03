@@ -11,6 +11,7 @@ import {
   useContext,
 } from "react";
 import { AppContext } from "./AppContext";
+import { TodoContext } from "./TodoContext";
 
 export type ProfileType = {
   id: string;
@@ -54,6 +55,8 @@ export const ProfileContext = createContext<ProfileContextType>({
 });
 
 const ProfileContextProvider = ({ children }: { children: ReactNode }) => {
+  const { allUsersTodos, setAllUsersTodos } = useContext(TodoContext);
+
   const [profiles, setProfiles] = useState<ProfileType[]>([]);
   const { setOpenAddNewProfile, activateCustomNotification } =
     useContext(AppContext);
@@ -63,9 +66,25 @@ const ProfileContextProvider = ({ children }: { children: ReactNode }) => {
     if (profilesInLocalStorage) {
       let profilesArray = JSON.parse(profilesInLocalStorage);
       setProfiles(profilesArray);
-      console.log("Load");
 
       return profilesArray;
+    }
+    return [];
+  };
+
+  const getAllTodosInLocalStorageAndDeleteProfileDeleted = (id: string) => {
+    let todosInLocalStorage = localStorage.getItem("allUsersTodos");
+    if (todosInLocalStorage) {
+      let allTodos = JSON.parse(todosInLocalStorage);
+      const allTodosCopy = { ...allTodos };
+  
+      for (let key in allTodosCopy) {
+        if (key === id) {
+          delete allTodosCopy[key];
+        }
+      }
+  
+     localStorage.setItem('allUsersTodos', JSON.stringify(allTodosCopy));
     }
     return [];
   };
@@ -100,6 +119,7 @@ const ProfileContextProvider = ({ children }: { children: ReactNode }) => {
         ),
         1
       );
+      getAllTodosInLocalStorageAndDeleteProfileDeleted(id)
       localStorage.setItem("profiles", JSON.stringify(profilesInLocalStorage));
     } else {
       return;
@@ -148,6 +168,7 @@ const ProfileContextProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem("loggedByProfile");
     setLoggedByProfile(false);
     setCurrentProfileLogged([]);
+
     router.push("/");
     activateCustomNotification("success", "Deslogado com sucesso");
   };

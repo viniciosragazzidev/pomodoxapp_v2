@@ -6,30 +6,39 @@ import Slider from "@mui/material/Slider";
 import { PomodoroContext } from "@/app/_context/PomodoroContext";
 
 export default function ModalPomodoroClock() {
-  const [valueDurationPomodoro, setValueDurationPomodoro] = useState(0);
-  const [valueDurationShortBreak, setValueDurationShortBreak] = useState(0);
-  const [valueDurationLongBreak, setValueDurationLongBreak] = useState(0);
+
+  const {
+    setOpenModalPomodoro,
+    openModalPomodoro,
+    setValueFocusTimer,
+    valueFocusTimer,
+    valueShortTimer,
+    setValueShortTimer,
+    valueLongTimer,
+    setValueLongTimer,
+  } = useContext(PomodoroContext);
+
 
   const [notifificationSound, setNotifificationSound] = useState(false);
   const [fullscreenMode, setFullscreenMode] = useState(false);
   const [notificationByPush, setNotificationByPush] = useState(false);
   
   function valueTextDurantionPomodoro(value: number) {
-    setValueDurationPomodoro(value);
+    setValueFocusTimer(value);
+    
     return `${value}`;
   }
   function valueTextDurantionShortBreak(value: number) {
-    setValueDurationShortBreak(value);
+    setValueShortTimer(value);
     return `${value}`;
   }
   function valueTextDurantionLongBreak(value: number) {
-    setValueDurationLongBreak(value);
+    setValueLongTimer(value);
     return `${value}`;
   }
 
 
 
-  const {setOpenModalPomodoro, openModalPomodoro} = useContext(PomodoroContext)
   
   return (
 
@@ -60,18 +69,19 @@ export default function ModalPomodoroClock() {
               <Box sx={{ width: 300 }}>
                 <Slider
                   aria-label="Small steps"
-                  defaultValue={0.1}
+                  defaultValue={10}
                   getAriaValueText={valueTextDurantionPomodoro}
                   step={5}
                   marks
-                  min={0.1}
+                  min={10}
                   max={60}
                   valueLabelDisplay="auto"
                   color="primary"
+                  onChange={()=>{setValueFocusTimer(valueFocusTimer)}}
                 />
               </Box>
               <span className=" pb-1 border-b-2 border-b-custom-purple-hover   ">
-                {valueDurationPomodoro}
+                {valueFocusTimer}
               </span>
             </div>
           </div>
@@ -93,7 +103,7 @@ export default function ModalPomodoroClock() {
                 />
               </Box>
               <span className=" pb-1 border-b-2 border-b-custom-purple-hover   ">
-                {valueDurationShortBreak}
+                {valueShortTimer}
               </span>
             </div>
           </div>
@@ -115,7 +125,7 @@ export default function ModalPomodoroClock() {
                 />
               </Box>
               <span className=" pb-1 border-b-2 border-b-custom-purple-hover   ">
-                {valueDurationLongBreak}
+                {valueLongTimer}
               </span>
             </div>
           </div>
