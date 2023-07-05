@@ -131,7 +131,7 @@ export default function TodoModalComponent() {
         });
       } else {
         const todo = {
-          id: todosCopy.length + 1,
+          id: (Number(new Date()) + Math.floor(Math.random() * 999 )),
           title: title,
           description: description,
           date: expirationDate,
@@ -162,8 +162,41 @@ export default function TodoModalComponent() {
       return;
     }
   };
+  const handleDeleteTodo = (e: any) => {
+    const todosCopy = [...todos];
 
+    if (openModalEditTodo) {
+      for (let i = todosCopy.length - 1; i >= 0; i--) {
+        const todo = todosCopy[i];
+        if (todo.id === currentTodoEditId) {
+          todosCopy.splice(i, 1);
+        }
+      }
+    
+
+       let confirm = window.confirm("Tem certeza que deseja excluir " + currentTodoEditId)
+
+       if (confirm) {
+        const allUsersTds: { [key: string]: any[] } = { ...allUsersTodos };
+
+        const arrayName = currentUser.toString();
+        const array = todosCopy;
+    
+        allUsersTds[arrayName] = array;
+    
+        setAllUsersTodos(allUsersTds);
+    
+        localStorage.setItem("allUsersTodos", JSON.stringify(allUsersTds));
+    
+        setTodos(todosCopy);
+        setOpenModalTodo(!openModalTodo);
+        resetFields();
+       }
+    }
+
+  };
   useEffect(() => {
+    
     if (openModalEditTodo) {
       todos.forEach((todo) => {
         if (todo.id === currentTodoEditId) {
@@ -342,12 +375,25 @@ export default function TodoModalComponent() {
               </div>
             </div>
           </div>
-          <button
-            className="send bg-custom-purple-hover px-5 py-3 text-lg rounded-md hover:scale-95 hover:bg-custom-purple-hover transition-all"
-            type="submit"
-          >
-            Enviar
-          </button>
+          <div className="flex gap-4 w-full">
+            <button
+              className="send bg-custom-purple-hover flex-1 px-5 py-3 text-lg rounded-md hover:scale-95 hover:bg-custom-purple-hover transition-all"
+              type="submit"
+            >
+              Enviar
+            </button>
+            {openModalEditTodo && (
+              <button
+                onClick={() => {
+                  handleDeleteTodo(currentTodoEditId);
+                }}
+                className="delete bg-custom-purple flex-1 px-5 py-3 text-lg rounded-md hover:scale-95 transition-all"
+                type="button"
+              >
+                Apagar
+              </button>
+            )}
+          </div>
         </form>
       </div>
     </div>
