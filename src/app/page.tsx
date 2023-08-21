@@ -4,18 +4,12 @@ import { useContext, useEffect, useState } from "react";
 import { AddPerfilArea } from "./components/Perfis/AddPerfilArea";
 import { PerfisArea } from "./components/Perfis/PerfisArea";
 import { AppContext } from "./_context/AppContext";
-import {
-  useMotionValue,
-  motion,
-  useTransform,
-  animate,
-} from "framer-motion";
+import { useMotionValue, motion, useTransform, animate } from "framer-motion";
 import { TodoContext } from "./_context/TodoContext";
 
 export default function Home({}) {
   const { openAddNewProfile, setOpenAddNewProfile } = useContext(AppContext);
   const { setTodos } = useContext(TodoContext);
-
 
   const count1 = useMotionValue(0);
   const count2 = useMotionValue(0);
@@ -48,13 +42,12 @@ export default function Home({}) {
         };
       }, 900);
     }, 1000);
-    setTodos([])
-    
+    setTodos([]);
   }, []);
 
   return (
     <main className="flex  min-h-[80vh] justify-center flex-col items-center px-10 max-[480px]:px-7 text-white text-center mt-5">
-      <div className="container-top grid grid-cols-2 max-[865px]:grid-cols-1 gap-16 justify-between py-14  ">
+      <div className="container-top container grid grid-cols-2 max-[865px]:grid-cols-1 gap-16 justify-between py-14  ">
         <section className=" flex flex-col gap-3 text-start w-full h-full justify-start items-start">
           <motion.div
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
@@ -63,7 +56,8 @@ export default function Home({}) {
             className="text grid gap-5"
           >
             <h1 className="text-4xl max-sm:text-3xl tracking-wide font-bold ">
-              Impusione sua produtividade com o <span className="text-custom-purple">método pomodoro</span>
+              Impusione sua produtividade com o{" "}
+              <span className="text-custom-purple">método pomodoro</span>
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt sint
